@@ -11,8 +11,8 @@ import { Calendar } from "@/components/ui/calendar";
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 // API types
-type Service = { id: string; title: string; duration: int; price: string; numeric_price: int; desc: string; category_id: string; image: string };
-type Stylist = { id: int; name: string; role: string; specialty: string; image: string };
+type Service = { id: string; title: string; duration: number; price: string; numeric_price: number; desc: string; category_id: string; image: string };
+type Stylist = { id: number; name: string; role: string; specialty: string; image: string };
 
 export default function BookingFlow() {
   const [step, setStep] = useState(1);
@@ -36,11 +36,11 @@ export default function BookingFlow() {
   
   useEffect(() => {
     // Load services and stylists
-    fetch("http://localhost:8000/api/services")
+    fetch("/api/services")
       .then(res => res.json())
       .then(data => setServices(data));
       
-    fetch("http://localhost:8000/api/stylists")
+    fetch("/api/stylists")
       .then(res => res.json())
       .then(data => setStylists(data));
   }, []);
@@ -48,7 +48,7 @@ export default function BookingFlow() {
   useEffect(() => {
     if (date && selectedStylist && selectedService) {
       const formattedDate = format(date, "yyyy-MM-dd");
-      fetch(`http://localhost:8000/api/availability?date=${formattedDate}&stylist_id=${selectedStylist.id}&service_id=${selectedService.id}`)
+      fetch(`/api/availability?date=${formattedDate}&stylist_id=${selectedStylist.id}&service_id=${selectedService.id}`)
         .then(res => res.json())
         .then(data => setAvailableSlots(data.available_slots));
     }
@@ -58,7 +58,7 @@ export default function BookingFlow() {
     if (!selectedService || !selectedStylist || !date || !time) return;
     
     // Create pending booking
-    const bookingRes = await fetch("http://localhost:8000/api/bookings", {
+    const bookingRes = await fetch("/api/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -76,7 +76,7 @@ export default function BookingFlow() {
       const booking = await bookingRes.json();
       
       // Create payment intent
-      const paymentRes = await fetch("http://localhost:8000/api/payments/create-intent", {
+      const paymentRes = await fetch("/api/payments/create-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ booking_id: booking.id })
