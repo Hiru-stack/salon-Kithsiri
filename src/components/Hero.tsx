@@ -201,13 +201,13 @@ export default function Hero() {
         </motion.div>
 
         {/* Main heading — character split */}
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-8xl font-light text-white leading-[1.05] tracking-tight mb-2">
+        <h1 className="font-serif text-4xl sm:text-6xl md:text-8xl font-light text-white leading-[1.05] tracking-tight mb-2">
           <div className="overflow-hidden">
             <AnimatedTitle text="Where Craftsmanship" delay={0.7} />
           </div>
           <div className="overflow-hidden flex items-center justify-center gap-4 mt-1">
             <AnimatedTitle text="Meets" delay={1.15} italic />
-            <span className="inline-block min-w-[240px] sm:min-w-[320px] text-left overflow-hidden">
+            <span className="inline-block min-w-[200px] sm:min-w-[320px] text-left overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentSlide}
@@ -252,17 +252,17 @@ export default function Hero() {
 
         {/* ── Animated Stats Row ─────────────────────────── */}
         <motion.div
-          className="flex items-center justify-center gap-12 sm:gap-20 mt-20"
+          className="grid grid-cols-2 gap-x-6 gap-y-10 sm:flex sm:items-center sm:justify-center sm:gap-12 md:gap-20 mt-16 sm:mt-20 w-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.1, duration: 0.8 }}
         >
           <StatItem value="500+" label="Happy Clients" delay={2.2} />
-          <div className="w-px h-10 bg-white/15" />
+          <div className="hidden sm:block w-px h-10 bg-white/15" />
           <StatItem value="15yrs" label="Experience" delay={2.35} />
-          <div className="w-px h-10 bg-white/15" />
+          <div className="hidden sm:block w-px h-10 bg-white/15" />
           <StatItem value="4" label="Specialities" delay={2.5} />
-          <div className="w-px h-10 bg-white/15 hidden sm:block" />
+          <div className="hidden sm:block w-px h-10 bg-white/15" />
           <StatItem value="⭐ 4.9" label="Rating" delay={2.65} />
         </motion.div>
       </motion.div>
