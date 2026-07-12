@@ -2,8 +2,7 @@
 
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { getWhatsAppBookingLink } from "@/lib/whatsapp";
-import { WhatsAppButton } from "@/components/LuxButton";
+import { BookButton } from "@/components/LuxButton";
 
 const hours = [
   { day: "Monday – Friday", time: "9:00 AM – 8:00 PM" },
@@ -91,7 +90,7 @@ export default function Footer() {
               initial="hidden" animate={leftControls}
               variants={{ hidden: { opacity: 0, y: 15 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.6 } } }}
             >
-              <WhatsAppButton href={getWhatsAppBookingLink()} />
+              <BookButton href="/book" />
             </motion.div>
 
             {/* Decorative large serif watermark */}

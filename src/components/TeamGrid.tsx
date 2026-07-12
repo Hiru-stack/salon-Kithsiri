@@ -2,7 +2,7 @@
 
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
-import { getWhatsAppBookingLink } from "@/lib/whatsapp";
+import { BookButton } from "@/components/LuxButton";
 
 const teamMembers = [
   {
@@ -85,7 +85,7 @@ function TeamCard({ member, index }: { member: typeof teamMembers[0]; index: num
 
       {/* Book with stylist */}
       <a
-        href={getWhatsAppBookingLink(`an appointment with ${member.name}`)}
+        href="/book"
         target="_blank"
         rel="noopener noreferrer"
         className="underline-reveal font-sans text-[10px] tracking-[0.35em] uppercase font-semibold text-neutral-400 hover:text-neutral-900 transition-colors duration-300 inline-flex items-center gap-2 group/link"

@@ -5,8 +5,7 @@ import PhilosophyStrip from "@/components/PhilosophyStrip";
 import ServiceCatalog from "@/components/ServiceCatalog";
 import TeamGrid from "@/components/TeamGrid";
 import Footer from "@/components/Footer";
-import { FloatingWhatsApp } from "@/components/LuxButton";
-import { getWhatsAppBookingLink } from "@/lib/whatsapp";
+import { FloatingBookButton } from "@/components/LuxButton";
 
 export const metadata: Metadata = {
   title: "Kithsiri Salon — Where Craftsmanship Meets Timeless Beauty",
@@ -26,7 +25,7 @@ export default function Home() {
         <TeamGrid />
       </main>
       <Footer />
-      <FloatingWhatsApp href={getWhatsAppBookingLink()} />
+      <FloatingBookButton href="/book" />
     </div>
   );
 }

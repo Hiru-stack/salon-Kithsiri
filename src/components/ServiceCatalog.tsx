@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView, useAnimation } from "framer-motion";
-import { getWhatsAppBookingLink } from "@/lib/whatsapp";
+import { BookButton } from "@/components/LuxButton";
 
 type Service = {
   id: string;
@@ -82,7 +82,7 @@ function ServiceRow({
 }) {
   return (
     <motion.a
-      href={getWhatsAppBookingLink(service.title)}
+      href="/book"
       target="_blank"
       rel="noopener noreferrer"
       onMouseEnter={() => onHover(service.id)}
@@ -240,7 +240,7 @@ export default function ServiceCatalog() {
               {/* CTA at bottom */}
               <div className="mt-auto px-6 py-5 bg-neutral-50 border-t border-neutral-100">
                 <a
-                  href={getWhatsAppBookingLink()}
+                  href="/book"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-3 font-sans text-[10px] tracking-[0.35em] uppercase font-semibold text-neutral-500 hover:text-neutral-900 transition-colors duration-300"

@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { WhatsAppButton } from "@/components/LuxButton";
-import { getWhatsAppBookingLink } from "@/lib/whatsapp";
+import { BookButton } from "@/components/LuxButton";
 
 /* ── Floating Particle ─────────────────────────────────────────────────── */
 function Particle({ i }: { i: number }) {
@@ -241,7 +240,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.7, duration: 0.8 }}
         >
-          <WhatsAppButton href={getWhatsAppBookingLink()} />
+          <BookButton href="/book" />
           <Link
             href="#services"
             className="underline-reveal font-sans text-[11px] tracking-[0.4em] uppercase font-medium text-white/65 hover:text-white transition-colors duration-300"

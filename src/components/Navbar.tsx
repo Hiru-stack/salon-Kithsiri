@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { getWhatsAppBookingLink } from "@/lib/whatsapp";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -77,9 +76,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             {/* CTA */}
             <motion.a
-              href={getWhatsAppBookingLink()}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/book"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -131,9 +128,7 @@ export default function Navbar() {
               </motion.div>
             ))}
             <motion.a
-              href={getWhatsAppBookingLink()}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/book"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
